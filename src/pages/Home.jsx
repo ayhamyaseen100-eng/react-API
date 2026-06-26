@@ -1,25 +1,29 @@
 import { Link } from "react-router-dom";
 
-function Home() {
+const Home = () => {
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center text-center px-5">
+    <div
+      className="min-h-screen flex items-center justify-center bg-gradient-to-r from-orange-400 to-red-500"
+    >
+      <div className="text-center text-white">
 
-      <h1 className="text-6xl font-bold mb-6 text-cyan-400">
-        Welcome To Food App
-      </h1>
+        <h1 className="text-7xl font-bold mb-6">
+          Forkify Recipes
+        </h1>
 
-      <p className="max-w-[700px] text-gray-300 text-xl leading-9 mb-8">
-        Search for thousands of delicious recipes and discover amazing meals from all around the world.
-      </p>
+        <p className="text-2xl mb-8">
+          Discover thousands of recipes
+        </p>
 
-      <Link to="/recipes">
-        <button className="bg-cyan-100 border border-amber-400 hover:bg-cyan-600 px-8 py-3 rounded-xl text-lg duration-300">
+        <Link
+          to="/recipes"
+          className="bg-white text-orange-500 px-8 py-4 rounded-xl font-bold"
+        >
           Explore Recipes
-        </button>
-      </Link>
-
+        </Link>
+      </div>
     </div>
   );
-}
+};
 
 export default Home;

@@ -1,31 +1,34 @@
 import { Link } from "react-router-dom";
 
-function RecipeCard({ recipe }) {
+const RecipeCard = ({ recipe }) => {
   return (
-    <div className="bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:scale-105 duration-300">
-
+    <div
+      className="bg-white rounded-2xl overflow-hidden shadow-lg hover:scale-105 duration-300"
+    >
       <img
         src={recipe.image_url}
-        className="w-full h-[250px] object-cover"
+        alt={recipe.title}
+        className="h-60 w-full object-cover"
       />
 
       <div className="p-5">
-
-        <h2 className="text-xl font-bold mb-4">
+        <h2 className="font-bold text-xl mb-3">
           {recipe.title}
         </h2>
 
-        <Link to={`/recipe/${recipe.recipe_id}`}>
+        <p className="text-gray-500 mb-4">
+          {recipe.publisher}
+        </p>
 
-          <button className="bg-cyan-500 hover:bg-cyan-600 px-5 py-2 rounded-lg duration-300">
-            Details
-          </button>
-
+        <Link
+          to={`/recipe/${recipe.id}`}
+          className="bg-orange-500 text-white px-4 py-2 rounded-lg"
+        >
+          Details
         </Link>
-
       </div>
     </div>
   );
-}
+};
 
 export default RecipeCard;

@@ -1,30 +1,35 @@
 import { Link } from "react-router-dom";
 
-function Navbar() {
+const Navbar = () => {
   return (
-    <nav className="flex justify-between items-center px-10 py-5 bg-slate-900 shadow-lg">
+    <nav className="fixed top-0 w-full bg-white shadow-md z-50">
+      <div className="max-w-7xl mx-auto flex justify-between items-center p-5">
 
-      <h1 className="text-2xl font-bold text-cyan-400">
-        Food App
-      </h1>
-
-      <div className="flex gap-6 text-lg">
-
-        <Link to="/" className="hover:text-cyan-400 duration-300">
-          Home
+        <Link
+          to="/"
+          className="text-3xl font-bold text-orange-500"
+        >
+          Forkify
         </Link>
 
-        <Link to="/recipes" className="hover:text-cyan-400 duration-300">
-          Recipes
-        </Link>
+        <div className="space-x-6">
+          <Link
+            to="/"
+            className="font-semibold hover:text-orange-500"
+          >
+            Home
+          </Link>
 
-        <Link to="/policy" className="hover:text-cyan-400 duration-300">
-          Policy
-        </Link>
-
+          <Link
+            to="/recipes"
+            className="font-semibold hover:text-orange-500"
+          >
+            Recipes
+          </Link>
+        </div>
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;

@@ -1,24 +1,24 @@
-function Search({ value, onChange, onSearch }) {
+const Search = ({ query, setQuery, handleSearch }) => {
   return (
-    <div className="flex justify-center gap-4 mb-10 flex-wrap">
-
+    <form
+      onSubmit={handleSearch}
+      className="flex gap-3 justify-center mb-10"
+    >
       <input
         type="text"
-        value={value}
-        onChange={onChange}
-        placeholder="Search Food..."
-        className="bg-slate-800 px-5 py-3 rounded-xl outline-none w-[300px]"
+        placeholder="Search recipes..."
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        className="border w-80 p-3 rounded-xl"
       />
 
       <button
-        onClick={onSearch}
-        className="bg-cyan-500 hover:bg-cyan-600 px-6 py-3 rounded-xl duration-300"
+        className="bg-orange-500 text-white px-6 rounded-xl"
       >
         Search
       </button>
-
-    </div>
+    </form>
   );
-}
+};
 
 export default Search;

@@ -1,11 +1,11 @@
-function Loader() {
+const Loader = () => {
   return (
-    <div className="flex justify-center items-center mt-20">
-
-      <div className="w-16 h-16 border-4 border-cyan-400 border-t-transparent rounded-full animate-spin">load...</div>
-
+    <div className="flex justify-center py-10">
+      <div
+        className="animate-spin rounded-full h-16 w-16 border-b-4 border-orange-500"
+      ></div>
     </div>
   );
-}
+};
 
 export default Loader;

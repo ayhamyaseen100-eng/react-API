@@ -1,31 +1,23 @@
-export const getRecipes = async (query) => {
-  try {
+const API_URL = "https://forkify-api.jonas.io/api/v2/recipes";
 
-    const response = await fetch(
-      `https://forkify-api.herokuapp.com/api/search?q=${query}`
-    );
+export const searchRecipes = async (query) => {
+  const res = await fetch(`${API_URL}?search=${query}`);
 
-    const data = await response.json();
-
-    return data.recipes;
-
-  } catch (error) {
-    console.log(error);
+  if (!res.ok) {
+    throw new Error("Failed to fetch recipes");
   }
+
+  const data = await res.json();
+  return data.data.recipes;
 };
 
-export const getRecipeDetails = async (id) => {
-  try {
+export const getRecipeById = async (id) => {
+  const res = await fetch(`${API_URL}/${id}`);
 
-    const response = await fetch(
-      `https://forkify-api.herokuapp.com/api/get?rId=${id}`
-    );
-
-    const data = await response.json();
-
-    return data.recipe;
-
-  } catch (error) {
-    console.log(error);
+  if (!res.ok) {
+    throw new Error("Recipe not found");
   }
+
+  const data = await res.json();
+  return data.data.recipe;
 };
